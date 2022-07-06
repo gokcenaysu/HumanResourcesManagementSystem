@@ -1,21 +1,22 @@
-package kodlama.io.hrms.entities.concretes;
+package kodlama.io.hrms.core.entities;
 
-import lombok.Builder;
-import lombok.Getter;
+import com.sun.istack.NotNull;
+import kodlama.io.hrms.entities.concretes.Employer;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "personnels")
+@Table(name="users")
+@Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor
-@Getter
-@Setter
-public class Personnel {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn
     @Column(nullable = false)
     private int id;
 
@@ -25,7 +26,8 @@ public class Personnel {
     @Column(name="password")
     private String password;
 
-    public Personnel(int id, String email, String password) {
+    public User(int id, String email, String password) {
+        super();
         this.id = id;
         this.email = email;
         this.password = password;

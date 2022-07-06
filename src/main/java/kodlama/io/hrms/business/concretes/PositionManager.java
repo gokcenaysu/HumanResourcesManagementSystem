@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class PositionManager implements PositionService {
 
-    @Autowired
     private PositionDao positionDao;
 
+    @Autowired
     public PositionManager(PositionDao positionDao) {
         super();
         this.positionDao = positionDao;

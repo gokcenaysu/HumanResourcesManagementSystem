@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class PersonnelManager implements PersonnelService {
 
-    @Autowired
     private PersonnelDao personnelDao;
 
+    @Autowired
     public PersonnelManager(PersonnelDao personnelDao) {
         super();
         this.personnelDao = personnelDao;

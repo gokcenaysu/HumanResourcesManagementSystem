@@ -1,5 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
+import kodlama.io.hrms.core.entities.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,10 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class JobSeeker {
+public class JobSeeker extends User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private int id;
 

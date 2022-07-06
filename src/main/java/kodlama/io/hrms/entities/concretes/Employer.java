@@ -8,14 +8,14 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employers")
+@Table(name="employers")
 @NoArgsConstructor
 @Getter
 @Setter
 public class Employer {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private int id;
 

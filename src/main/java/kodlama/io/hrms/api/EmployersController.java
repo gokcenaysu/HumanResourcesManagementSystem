@@ -27,8 +27,18 @@ public class EmployersController {
     }
 
     @PostMapping("register")
-    public Result add(@RequestBody Employer employer) {
+    public Result register(@RequestBody Employer employer) {
         return this.employerService.register(employer);
+    }
+
+    @PostMapping("login")
+    public Result login (@RequestBody Employer employer) {
+        return this.employerService.login(employer);
+    }
+
+    @PutMapping("update")
+    public Result update (@RequestBody Employer employer){
+        return this.employerService.update(employer);
     }
 
     @PostMapping("delete")

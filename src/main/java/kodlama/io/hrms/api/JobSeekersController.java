@@ -2,10 +2,11 @@ package kodlama.io.hrms.api;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
+import kodlama.io.hrms.core.utilities.results.Result;
+import kodlama.io.hrms.entities.concretes.Employer;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class JobSeekersController {
 
     private JobSeekerService jobSeekerService;
 
+    @Autowired
     public JobSeekersController(JobSeekerService jobSeekerService) {
         super();
         this.jobSeekerService = jobSeekerService;
@@ -23,5 +25,25 @@ public class JobSeekersController {
     @GetMapping("getall")
     public DataResult<List<JobSeeker>> getAll(){
         return this.jobSeekerService.getAll();
+    }
+
+    @PostMapping("register")
+    public Result register(@RequestBody JobSeeker jobSeeker) {
+        return this.jobSeekerService.register(jobSeeker);
+    }
+
+    @PostMapping("login")
+    public Result login (@RequestBody JobSeeker jobSeeker) {
+        return this.jobSeekerService.login(jobSeeker);
+    }
+
+    @PutMapping("update")
+    public Result update (@RequestBody JobSeeker jobSeeker){
+        return this.jobSeekerService.update(jobSeeker);
+    }
+
+    @PostMapping("delete")
+    public Result delete(@RequestBody JobSeeker jobSeeker){
+        return this.jobSeekerService.delete(jobSeeker);
     }
 }

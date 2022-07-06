@@ -2,10 +2,7 @@ package kodlama.io.hrms.business.concretes;
 
 import kodlama.io.hrms.business.abstracts.EmployerService;
 import kodlama.io.hrms.business.constants.messages;
-import kodlama.io.hrms.core.utilities.results.DataResult;
-import kodlama.io.hrms.core.utilities.results.Result;
-import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
-import kodlama.io.hrms.core.utilities.results.SuccessResult;
+import kodlama.io.hrms.core.utilities.results.*;
 import kodlama.io.hrms.dataAccess.abstracts.EmployerDao;
 import kodlama.io.hrms.entities.concretes.Employer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +13,9 @@ import java.util.List;
 @Service
 public class EmployerManager implements EmployerService {
 
-    @Autowired
     private EmployerDao employerDao;
 
+    @Autowired
     public EmployerManager(EmployerDao employerDao) {
         super();
         this.employerDao = employerDao;
@@ -27,6 +24,14 @@ public class EmployerManager implements EmployerService {
     @Override
     public DataResult<List<Employer>> getAll() {
         return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),messages.listed);
+    }
+
+    @Override
+    public DataResult<List<Employer>> findById(int id) {
+        if(employerDao.equals(findById(id)) == false){
+            return new ErrorDataResult<List<Employer>>("error");
+        }
+        return new SuccessDataResult<List<Employer>>(messages.listed);
     }
 
     @Override
@@ -52,4 +57,5 @@ public class EmployerManager implements EmployerService {
         this.employerDao.save(employer);
         return new SuccessResult(messages.loggedIn);
     }
+
 }

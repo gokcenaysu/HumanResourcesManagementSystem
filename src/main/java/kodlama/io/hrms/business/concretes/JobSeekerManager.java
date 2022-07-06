@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class JobSeekerManager implements JobSeekerService {
 
-    @Autowired
     private JobSeekerDao jobSeekerDao;
 
+    @Autowired
     public JobSeekerManager(JobSeekerDao jobSeekerDao) {
         super();
         this.jobSeekerDao = jobSeekerDao;
