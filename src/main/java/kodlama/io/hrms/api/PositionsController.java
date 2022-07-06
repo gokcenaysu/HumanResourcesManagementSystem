@@ -1,6 +1,7 @@
 package kodlama.io.hrms.api;
 
 import kodlama.io.hrms.business.abstracts.PositionService;
+import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.entities.concretes.Position;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class PositionsController {
     }
 
     @GetMapping("getall")
-    public List<Position> getAll(){
+    public DataResult<List<Position>> getAll(){
         return this.positionService.getAll();
     }
 }

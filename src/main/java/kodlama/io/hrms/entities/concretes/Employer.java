@@ -1,16 +1,22 @@
 package kodlama.io.hrms.entities.concretes;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="employers")
+@Table(name = "employers")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Employer {
 
     @Id
     @GeneratedValue
+    @Column(nullable = false)
     private int id;
 
     @Column(name="company_name")
@@ -23,7 +29,7 @@ public class Employer {
     private String email;
 
     @Column(name="phone_number")
-    private int phoneNumber;
+    private Integer phoneNumber;
 
     @Column(name="password")
     private String password;

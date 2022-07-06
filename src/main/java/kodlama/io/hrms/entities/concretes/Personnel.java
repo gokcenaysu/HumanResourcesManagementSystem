@@ -1,12 +1,17 @@
 package kodlama.io.hrms.entities.concretes;
 
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="personnels")
+@Table(name = "personnels")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Personnel {
 
     @Id

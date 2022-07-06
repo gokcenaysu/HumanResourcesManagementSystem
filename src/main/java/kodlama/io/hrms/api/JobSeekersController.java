@@ -1,6 +1,7 @@
 package kodlama.io.hrms.api;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
+import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class JobSeekersController {
     }
 
     @GetMapping("getall")
-    public List<JobSeeker> getAll(){
+    public DataResult<List<JobSeeker>> getAll(){
         return this.jobSeekerService.getAll();
     }
 }

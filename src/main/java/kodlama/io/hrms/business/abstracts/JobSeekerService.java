@@ -1,10 +1,18 @@
 package kodlama.io.hrms.business.abstracts;
 
+import kodlama.io.hrms.core.utilities.results.DataResult;
+import kodlama.io.hrms.core.utilities.results.Result;
+import kodlama.io.hrms.entities.concretes.Employer;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 
 import java.util.List;
 
 public interface JobSeekerService {
 
-    List<JobSeeker> getAll();
+    DataResult<List<JobSeeker>> getAll();
+    Result register(JobSeeker jobSeeker);
+    Result update(JobSeeker jobSeeker);
+    Result delete(JobSeeker jobSeeker);
+    Result login(JobSeeker jobSeeker);
+
 }
