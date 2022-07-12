@@ -17,14 +17,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @PrimaryKeyJoinColumn
-    @Column(nullable = false)
-    private int id;
+    public int id;
 
     @Column(name="email")
-    private String email;
+    public String email;
 
     @Column(name="password")
-    private String password;
+    public String password;
 
     public User(int id, String email, String password) {
         super();

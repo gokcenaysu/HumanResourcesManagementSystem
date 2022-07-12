@@ -1,5 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
+import kodlama.io.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,15 +10,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="employers")
+@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Employer {
+public class Employer extends User {
 
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private int id;
+    private int id;*/
 
     @Column(name="company_name")
     private String companyName;
@@ -25,21 +27,19 @@ public class Employer {
     @Column(name="website")
     private String website;
 
-    @Column(name="email")
-    private String email;
+/*    @Column(name="email")
+    private String email;*/
 
     @Column(name="phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
 
-    @Column(name="password")
-    private String password;
+  /*  @Column(name="password")
+    private String password;*/
 
-    public Employer(int id, String companyName, String website, String email, int phoneNumber, String password) {
-        this.id = id;
+    public Employer(String companyName, String website, String phoneNumber)  {
+        super();
         this.companyName = companyName;
         this.website = website;
-        this.email = email;
         this.phoneNumber = phoneNumber;
-        this.password = password;
     }
 }

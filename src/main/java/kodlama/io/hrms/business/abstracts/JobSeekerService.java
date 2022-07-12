@@ -13,6 +13,6 @@ public interface JobSeekerService {
     Result register(JobSeeker jobSeeker);
     Result update(JobSeeker jobSeeker);
     Result delete(JobSeeker jobSeeker);
-    Result login(JobSeeker jobSeeker);
+
 
 }

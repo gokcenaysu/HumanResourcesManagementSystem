@@ -32,11 +32,6 @@ public class JobSeekersController {
         return this.jobSeekerService.register(jobSeeker);
     }
 
-    @PostMapping("login")
-    public Result login (@RequestBody JobSeeker jobSeeker) {
-        return this.jobSeekerService.login(jobSeeker);
-    }
-
     @PutMapping("update")
     public Result update (@RequestBody JobSeeker jobSeeker){
         return this.jobSeekerService.update(jobSeeker);

@@ -10,6 +10,6 @@ import java.util.List;
 public interface EmployerDao extends JpaRepository<Employer, Integer> {
 
     List<Employer> findById (int id);
-    List<Employer> findByEmailEquals (String email);
+    Employer findByEmailEquals (String email);
     List<Employer> findByPhoneNumber (String phoneNumber);
 }

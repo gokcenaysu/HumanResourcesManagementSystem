@@ -14,10 +14,10 @@ import javax.persistence.*;
 @Setter
 public class JobSeeker extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private int id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(nullable = false)
+//    private int id;
 
     @Column(name="first_name")
     private String firstName;
@@ -26,10 +26,10 @@ public class JobSeeker extends User {
     private String lastName;
 
     @Column(name="identity_number")
-    private int identityNumber;
+    private String identityNumber;
 
     @Column(name="birth_year")
-    private int birthYear;
+    private String birthYear;
 
     @Column(name="email")
     private String email;
@@ -37,7 +37,7 @@ public class JobSeeker extends User {
     @Column(name="password")
     private String password;
 
-    public JobSeeker(int id, String firstName, String lastName, int identityNumber, int birthYear, String email, String password) {
+    public JobSeeker(int id, String firstName, String lastName, String identityNumber, String birthYear, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

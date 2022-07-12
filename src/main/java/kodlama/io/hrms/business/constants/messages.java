@@ -8,6 +8,15 @@ public class messages {
     public static String listed="The users listed";
     public static String updated="Updated";
     public static String added="Added";
+    public static String existsEmail="This email already exists";
+    public static String existsIdentityNumber="This identity number already exists";
+    public static String emptyField="Fields cannot be empty";
+    public static String notEmail="This e-mail is not in the system";
+    public static String letterLength="Cannot be less than 2 letters";
+    public static String emailFormat="Must be in e-Mail format";
+    public static String passwordFormat="Enter a value in the range of 1-30";
+    public static String nameFormat="Must be in name format";
+    public static String birthYearFormat="Please enter your birth year";
 
 
 }

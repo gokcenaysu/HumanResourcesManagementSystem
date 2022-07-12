@@ -1,5 +1,6 @@
 package kodlama.io.hrms.business.concretes;
 
+import kodlama.io.hrms.business.abstracts.FieldService;
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
 import kodlama.io.hrms.business.constants.messages;
 import kodlama.io.hrms.core.utilities.results.DataResult;
@@ -17,11 +18,13 @@ import java.util.List;
 public class JobSeekerManager implements JobSeekerService {
 
     private JobSeekerDao jobSeekerDao;
+    private FieldService<JobSeeker> fieldService;
 
     @Autowired
-    public JobSeekerManager(JobSeekerDao jobSeekerDao) {
+    public JobSeekerManager(JobSeekerDao jobSeekerDao, FieldService<JobSeeker> fieldService) {
         super();
         this.jobSeekerDao = jobSeekerDao;
+        this.fieldService = fieldService;
     }
 
     @Override
@@ -31,8 +34,7 @@ public class JobSeekerManager implements JobSeekerService {
 
     @Override
     public Result register(JobSeeker jobSeeker) {
-        this.jobSeekerDao.save(jobSeeker);
-        return new SuccessResult(messages.registered);
+        return this.fieldService.verifyRegister(jobSeeker);
     }
 
     @Override
@@ -45,11 +47,5 @@ public class JobSeekerManager implements JobSeekerService {
     public Result delete(JobSeeker jobSeeker) {
         this.jobSeekerDao.delete(jobSeeker);
         return new SuccessResult(messages.deleted);
-    }
-
-    @Override
-    public Result login(JobSeeker jobSeeker) {
-        this.jobSeekerDao.save(jobSeeker);
-        return new SuccessResult(messages.loggedIn);
     }
 }
