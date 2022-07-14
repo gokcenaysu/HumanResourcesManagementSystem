@@ -1,16 +1,14 @@
 package kodlama.io.hrms.entities.concretes;
 
 import kodlama.io.hrms.core.entities.User;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="employers")
-@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
+@Data
+@PrimaryKeyJoinColumn(name = "id")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -36,10 +34,4 @@ public class Employer extends User {
   /*  @Column(name="password")
     private String password;*/
 
-    public Employer(String companyName, String website, String phoneNumber)  {
-        super();
-        this.companyName = companyName;
-        this.website = website;
-        this.phoneNumber = phoneNumber;
-    }
 }

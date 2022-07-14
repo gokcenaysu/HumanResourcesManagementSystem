@@ -24,7 +24,7 @@ public class UserManager implements UserService {
     @Override
     public Result login(User user) {
 
-            if(userDao.existsByEmail(user.email)  == false){
+            if(userDao.existsByEmail(user.getEmail())  == false){
                 return new ErrorResult(messages.notEmail);
             }
             this.userDao.save(user);
