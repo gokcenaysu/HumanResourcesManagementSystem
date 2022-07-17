@@ -30,5 +30,10 @@ public class UserManager implements UserService {
             this.userDao.save(user);
             return new SuccessResult(messages.loggedIn);
         }
+
+    @Override
+    public DataResult<List<User>> getAll(User user) {
+        return new SuccessDataResult<List<User>>(this.userDao.findAll(), messages.listed);
     }
+}
 

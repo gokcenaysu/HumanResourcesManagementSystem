@@ -27,3 +27,9 @@ public class HrmsApplication {
 	}
 
 }
+// şimdi geldi dur seyi deneyim eployerdaki gelicek mi
+//email ve password görünmemesi normal mi normal sanırım benimkinde de öyleydi diye hatırlıyorum
+//nereye düştü data id 2 oldu muhtemelen ama bu db browser böyle olmaması lazımdı ya direkt tüm veriler
+// görüntülenemiyor
+//postgrede de yok
+//ok sorun yok sadece buradan gorunmuyor problem olurmu dc'den bir ss atacağım

@@ -1,6 +1,5 @@
 package kodlama.io.hrms.core.entities;
 
-import com.sun.istack.NotNull;
 import kodlama.io.hrms.entities.concretes.Employer;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -14,5 +14,4 @@ public interface EmployerService {
     Result register(Employer employer);
     Result update(Employer employer);
     Result delete(Employer employer);
-    Result login(Employer employer);
 }

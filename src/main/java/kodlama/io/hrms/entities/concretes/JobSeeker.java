@@ -1,6 +1,7 @@
 package kodlama.io.hrms.entities.concretes;
 
 import kodlama.io.hrms.core.entities.User;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "job_seekers")
+@Data
+@PrimaryKeyJoinColumn(name = "id")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -30,20 +33,4 @@ public class JobSeeker extends User {
 
     @Column(name="birth_year")
     private String birthYear;
-
-    @Column(name="email")
-    private String email;
-
-    @Column(name="password")
-    private String password;
-
-    public JobSeeker(int id, String firstName, String lastName, String identityNumber, String birthYear, String email, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.identityNumber = identityNumber;
-        this.birthYear = birthYear;
-        this.email = email;
-        this.password = password;
-    }
 }

@@ -6,6 +6,5 @@ public interface RegexService {
 //  boolean isPhoneNumberFormat(String phoneNumber);
     boolean isBirthYearFormat(String birthYear);
     boolean isPasswordFormat(String password);
-    boolean isFirstNameFormat(String firstName);
-    boolean isLastNameFormat(String lastName);
+
 }

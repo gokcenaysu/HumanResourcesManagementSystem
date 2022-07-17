@@ -1,6 +1,7 @@
 package kodlama.io.hrms.business.concretes;
 
 import kodlama.io.hrms.business.abstracts.EmployerService;
+import kodlama.io.hrms.business.abstracts.FieldService;
 import kodlama.io.hrms.business.constants.messages;
 import kodlama.io.hrms.core.utilities.results.*;
 import kodlama.io.hrms.dataAccess.abstracts.EmployerDao;
@@ -14,11 +15,13 @@ import java.util.List;
 public class EmployerManager implements EmployerService {
 
     private EmployerDao employerDao;
+    private FieldService fieldService;
 
     @Autowired
-    public EmployerManager(EmployerDao employerDao) {
+    public EmployerManager(EmployerDao employerDao, FieldService fieldService) {
         super();
         this.employerDao = employerDao;
+        this.fieldService=fieldService;
     }
 
     @Override
@@ -36,8 +39,7 @@ public class EmployerManager implements EmployerService {
 
     @Override
     public Result register(Employer employer) {
-        this.employerDao.save(employer);
-        return new SuccessResult(messages.registered);
+        return this.fieldService.verifyRegister(employer);
     }
 
     @Override
@@ -50,12 +52,6 @@ public class EmployerManager implements EmployerService {
     public Result delete(Employer employer) {
         this.employerDao.delete(employer);
         return new SuccessResult(messages.deleted);
-    }
-
-    @Override
-    public Result login(Employer employer) {
-        this.employerDao.save(employer);
-        return new SuccessResult(messages.loggedIn);
     }
 
 }

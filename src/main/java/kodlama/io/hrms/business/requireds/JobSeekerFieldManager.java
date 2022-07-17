@@ -53,13 +53,13 @@ public class JobSeekerFieldManager implements FieldService<JobSeeker> {
             return new ErrorResult(messages.letterLength);
         }
 
-        if (!regexService.isFirstNameFormat(jobSeeker.getFirstName())
-                || !regexService.isLastNameFormat(jobSeeker.getLastName())) {
-            return new ErrorResult(messages.nameFormat);
-        }
+//        if (!regexService.isFirstNameFormat(jobSeeker.getFirstName())
+//                || !regexService.isLastNameFormat(jobSeeker.getLastName())) {
+//            return new ErrorResult(messages.nameFormat);
+//        }
 
         if(!regexService.isBirthYearFormat(jobSeeker.getBirthYear())){
-            return new ErrorResult("birth");
+            return new ErrorResult(messages.birthYearFormat);
         }
 
         if(!regexService.isPasswordFormat(jobSeeker.getPassword())){

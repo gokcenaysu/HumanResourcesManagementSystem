@@ -38,28 +38,10 @@ public class RegexManager implements RegexService {
 
     @Override
     public boolean isPasswordFormat(String password) {
-        String regex = "^[a-zA-Z\\d]{1,30}$";
+        String regex = "^(?=.*[A-Z])(?=.*[\\W])(?=.*[0-9])(?=.*[a-z]).{8,128}$";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
-    }
-
-    @Override
-    public boolean isFirstNameFormat(String firstName) {
-        String regex = "[A-Z][a-zA-Z]*";
-
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(firstName);
-        return matcher.matches();
-    }
-
-    @Override
-    public boolean isLastNameFormat(String lastName) {
-        String regex = "[A-Z]+[a-zA-Z]*";
-
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(lastName);
         return matcher.matches();
     }
 }
