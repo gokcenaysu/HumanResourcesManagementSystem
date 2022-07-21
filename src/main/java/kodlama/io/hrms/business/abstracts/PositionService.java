@@ -10,7 +10,7 @@ import java.util.List;
 public interface PositionService {
 
     DataResult<List<Position>> getAll();
+    DataResult<Position> findById(int id);
     Result add(Position position);
-    Result update(Position position);
     Result delete(Position position);
 }

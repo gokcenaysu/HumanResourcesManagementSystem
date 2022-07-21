@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface PositionDao extends JpaRepository<Position,Integer> {
 
-    List<Position> findById(int id);
-    List<Position> findByPositionName (String positionName);
+    Position findById(int id);
+    boolean existsByPositionName (String positionName);
 }

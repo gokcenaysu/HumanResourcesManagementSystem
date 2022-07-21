@@ -34,4 +34,9 @@ public class Employer extends User {
   /*  @Column(name="password")
     private String password;*/
 
+    public Employer(String companyName, String phoneNumber, String website) {
+        this.companyName=companyName;
+        this.phoneNumber=phoneNumber;
+        this.website=website;
+    }
 }

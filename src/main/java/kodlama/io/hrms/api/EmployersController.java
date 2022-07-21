@@ -4,6 +4,7 @@ import kodlama.io.hrms.business.abstracts.EmployerService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.Employer;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,17 +27,22 @@ public class EmployersController {
         return this.employerService.getAll();
     }
 
+    @GetMapping("findById")
+    public DataResult<Employer> findById(int id){
+        return this.employerService.findById(id);
+    }
+
     @PostMapping("register")
     public Result register(@RequestBody Employer employer) {
         return this.employerService.register(employer);
     }
 
-    @PutMapping("update")
-    public Result update (@RequestBody Employer employer){
-        return this.employerService.update(employer);
+    @PutMapping("login")
+    public Result login (@RequestBody Employer employer) {
+        return this.employerService.login(employer);
     }
 
-    @PostMapping("delete")
+    @DeleteMapping("delete")
     public Result delete(@RequestBody Employer employer){
         return this.employerService.delete(employer);
     }

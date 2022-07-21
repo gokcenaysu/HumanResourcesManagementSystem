@@ -2,9 +2,13 @@ package kodlama.io.hrms.api;
 
 import kodlama.io.hrms.business.abstracts.UserService;
 import kodlama.io.hrms.core.entities.User;
+import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
+import kodlama.io.hrms.entities.concretes.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users/")
@@ -19,12 +23,12 @@ public class UsersController {
     }
 
     @GetMapping("getall")
-    public Result GetAll(User user){
-        return this.userService.getAll(user);
+    public DataResult<List<User>> GetAll(){
+        return this.userService.getAll();
     }
 
-    @PostMapping("login")
-    public Result Login(@RequestBody User user){
-        return this.userService.login(user);
+    @GetMapping("findById")
+    public DataResult<User> findById(int id){
+        return this.userService.findById(id);
     }
 }

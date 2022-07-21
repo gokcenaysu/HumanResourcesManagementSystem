@@ -4,6 +4,7 @@ import kodlama.io.hrms.business.abstracts.PersonnelService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.Personnel;
+import kodlama.io.hrms.entities.concretes.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,11 @@ public class PersonnelsController {
     @GetMapping("getall")
     public DataResult<List<Personnel>> getAll(){
         return this.personnelService.getAll();
+    }
+
+    @GetMapping("findById")
+    public DataResult<Personnel> findById(int id){
+        return this.personnelService.findById(id);
     }
 
     @PostMapping("login")

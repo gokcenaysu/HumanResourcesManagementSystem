@@ -2,10 +2,7 @@ package kodlama.io.hrms.business.concretes;
 
 import kodlama.io.hrms.business.abstracts.PositionService;
 import kodlama.io.hrms.business.constants.messages;
-import kodlama.io.hrms.core.utilities.results.DataResult;
-import kodlama.io.hrms.core.utilities.results.Result;
-import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
-import kodlama.io.hrms.core.utilities.results.SuccessResult;
+import kodlama.io.hrms.core.utilities.results.*;
 import kodlama.io.hrms.dataAccess.abstracts.PositionDao;
 import kodlama.io.hrms.entities.concretes.Position;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +27,21 @@ public class PositionManager implements PositionService {
     }
 
     @Override
-    public Result add(Position position) {
-        this.positionDao.save(position);
-        return new SuccessResult(messages.added);
+    public DataResult<Position> findById(int id) {
+        Position position=this.positionDao.findById(id);
+        if(position==null)
+            return new ErrorDataResult<Position>(messages.noData);
+        return new SuccessDataResult<Position>(position,messages.listed);
     }
 
     @Override
-    public Result update(Position position) {
+    public Result add(Position position) {
+        if(position.getPositionName().length()<2){
+            return new ErrorResult(messages.letterLength);
+        }
+        if(positionDao.existsByPositionName(position.getPositionName())){
+            return new ErrorResult(messages.existsPosition);
+        }
         this.positionDao.save(position);
         return new SuccessResult(messages.added);
     }

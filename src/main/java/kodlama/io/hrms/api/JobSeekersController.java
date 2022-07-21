@@ -27,18 +27,19 @@ public class JobSeekersController {
         return this.jobSeekerService.getAll();
     }
 
+    @GetMapping("findById")
+    public DataResult<JobSeeker> findById(int id){
+        return this.jobSeekerService.findById(id);
+    }
+
     @PostMapping("register")
     public Result register(@RequestBody JobSeeker jobSeeker) {
         return this.jobSeekerService.register(jobSeeker);
     }
 
-    @PutMapping("update")
-    public Result update (@RequestBody JobSeeker jobSeeker){
-        return this.jobSeekerService.update(jobSeeker);
+    @PutMapping("login")
+    public Result login (@RequestBody JobSeeker jobSeeker){
+        return this.jobSeekerService.login(jobSeeker);
     }
 
-    @PostMapping("delete")
-    public Result delete(@RequestBody JobSeeker jobSeeker){
-        return this.jobSeekerService.delete(jobSeeker);
-    }
 }

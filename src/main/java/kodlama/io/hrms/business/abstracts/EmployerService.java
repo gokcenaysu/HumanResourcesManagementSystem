@@ -10,8 +10,8 @@ import java.util.List;
 public interface EmployerService {
 
     DataResult<List<Employer>> getAll();
-    DataResult<List<Employer>> findById(int id);
+    DataResult<Employer> findById(int id);
     Result register(Employer employer);
-    Result update(Employer employer);
+    Result login (Employer employer);
     Result delete(Employer employer);
 }

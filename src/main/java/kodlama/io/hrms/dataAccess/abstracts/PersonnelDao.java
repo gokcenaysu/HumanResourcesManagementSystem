@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface PersonnelDao extends JpaRepository<Personnel,Integer> {
 
-    List<Personnel> findById(int id);
+    Personnel findById(int id);
 }

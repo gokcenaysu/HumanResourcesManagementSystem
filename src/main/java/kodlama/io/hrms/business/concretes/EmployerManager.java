@@ -15,26 +15,25 @@ import java.util.List;
 public class EmployerManager implements EmployerService {
 
     private EmployerDao employerDao;
-    private FieldService fieldService;
+    private FieldService<Employer> fieldService;
 
     @Autowired
-    public EmployerManager(EmployerDao employerDao, FieldService fieldService) {
+    public EmployerManager(EmployerDao employerDao, FieldService<Employer> fieldService) {
         super();
         this.employerDao = employerDao;
         this.fieldService=fieldService;
     }
-
     @Override
     public DataResult<List<Employer>> getAll() {
         return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),messages.listed);
     }
 
     @Override
-    public DataResult<List<Employer>> findById(int id) {
-        if(employerDao.equals(findById(id)) == false){
-            return new ErrorDataResult<List<Employer>>("error");
-        }
-        return new SuccessDataResult<List<Employer>>(messages.listed);
+    public DataResult<Employer> findById(int id) {
+        Employer employer = employerDao.findById(id);
+        if(employer==null)
+            return new ErrorDataResult<Employer>(messages.noData);
+        return new SuccessDataResult<Employer>(employer,messages.listed);
     }
 
     @Override
@@ -43,15 +42,13 @@ public class EmployerManager implements EmployerService {
     }
 
     @Override
-    public Result update(Employer employer) {
-        this.employerDao.save(employer);
-        return new SuccessResult(messages.updated);
+    public Result login(Employer employer) {
+        return this.fieldService.verifyLogin(employer);
     }
 
     @Override
     public Result delete(Employer employer) {
-        this.employerDao.delete(employer);
-        return new SuccessResult(messages.deleted);
+       return this.fieldService.deleteAccount(employer);
     }
 
 }

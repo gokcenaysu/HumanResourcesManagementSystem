@@ -27,17 +27,17 @@ public class PositionsController {
         return this.positionService.getAll();
     }
 
+    @GetMapping("findById")
+    public DataResult<Position> findById(int id){
+        return this.positionService.findById(id);
+    }
+
     @PostMapping("add")
     public Result add (@RequestBody Position position) {
         return this.positionService.add(position);
     }
 
-    @PutMapping("update")
-    public Result update (@RequestBody Position position){
-        return this.positionService.update(position);
-    }
-
-    @PostMapping("delete")
+    @DeleteMapping("delete")
     public Result delete(@RequestBody Position position){
         return this.positionService.delete(position);
     }
